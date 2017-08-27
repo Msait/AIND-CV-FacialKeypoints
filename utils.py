@@ -26,6 +26,7 @@ def load_data(test=False):
     X = np.vstack(df['Image'].values) / 255.  # scale pixel values to [0, 1]
     X = X.astype(np.float32)
     X = X.reshape(-1, 96, 96, 1) # return each images as 96 x 96 x 1
+    print("Shape to recognize keypoints: {}".format(X.shape))
 
     if not test:  # only FTRAIN has target columns
         y = df[df.columns[:-1]].values
